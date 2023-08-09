@@ -20,11 +20,12 @@ export const authOptions: NextAuthOptions = {
       const encodedToken = jsonwebtoken.sign(
         {
           ...token,
-          iss: 'grafbase',
+          iss: "grafbase",
           exp: Math.floor(Date.now() / 1000) + 60 * 60,
-        }, 
-        secret 
-      )
+        },
+        secret
+      );
+      
       return encodedToken;
     },
     decode: async({ secret, token }) => {
